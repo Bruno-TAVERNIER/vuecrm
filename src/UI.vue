@@ -1,7 +1,7 @@
 <template>
-  <MyHeader titre="Mon CRM" :statut="open" @ouvrir="ouvrir"/>
+  <MyHeader v-bind:titre="titre" :statut="open" @ouvrir="ouvrir" />
   <div class="page">
-    <MyNav :statut="open" />
+    <MyNav :statut="open" @chgTitre="chgTitre" />
     <main>
       Contenu de la page
       <p v-if="ok">Contenu affiché si ok est vraie</p>
@@ -40,6 +40,7 @@ export default({
     return {
       ok: false,
       open: open,
+      titre: 'Mon CRM',
       tableau: [3,5,7,9,2,8,6,0]
     }
   },
@@ -57,6 +58,10 @@ export default({
     },
     ouvrir() {
       this.open = !this.open;
+    },
+    // la demande de changement de titre vient du composant enfant <MyNav />
+    chgTitre() {
+      this.titre = "Mon nouveau titre";
     }
   },
   // déclaration des composants affichés sur la page

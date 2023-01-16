@@ -4,7 +4,7 @@
       <li>Orders</li>
       <li>Clients</li>
     </ul>
-    <button>Changer le titre</button>
+    <button @click="chgTitre">Changer le titre</button>
   </nav>
 </template>
 
@@ -16,6 +16,12 @@ export default({
   },
   mounted() {
     console.log(this.statut);
+  },
+  methods: {
+    chgTitre() {
+      //j'envoie un évènement au composant parent (UI) pour lui demander de changer le titre
+      this.$emit('chgTitre');
+    }
   }
 })
 </script>
