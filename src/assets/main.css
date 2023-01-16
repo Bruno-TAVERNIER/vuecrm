@@ -9,6 +9,7 @@ header {
 .page {
   display: flex;
   min-height: calc(100vh - 65px - 50px);
+  margin-bottom: 60px;
 }
 nav {
   background: var(--app-darklight2);

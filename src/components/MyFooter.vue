@@ -1,5 +1,5 @@
 <template>
-  <footer>Copyright &copy; {{ annee }} - Moi</footer>
+  <footer>Copyright &copy; {{ annee }} {{ new Date().getFullYear() }} - Moi</footer>
 </template>
 
 <script>

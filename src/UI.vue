@@ -20,6 +20,9 @@
       <button v-on:click.once="maFonction">Cliquez ici</button>
       <button @click="maFonction">ou cliquez là</button>
       <div @click.left="lclic" @click.prevent.right="rclic">Une souris verte</div>
+
+      <OrdersSlot>{{ orders.length }}</OrdersSlot>
+      <TableOrders :orders="orders" :headers="headers" />
     </main>
   </div>
   <MyFooter />
@@ -33,6 +36,8 @@
 import MyHeader from './components/MyHeader.vue';
 import MyFooter from './components/MyFooter.vue';
 import MyNav from './components/MyNav.vue';
+import OrdersSlot from './components/OrdersSlot.vue';
+import TableOrders from './components/TableOrders.vue';
 
 export default({
   name: 'UI',
@@ -41,7 +46,51 @@ export default({
       ok: false,
       open: open,
       titre: 'Mon CRM',
-      tableau: [3,5,7,9,2,8,6,0]
+      tableau: [3,5,7,9,2,8,6,0],
+      headers: [
+        'Actions',
+        'Type',
+        'Client',
+        'Taux TVA',
+        'Nb Jours',
+        'TJM HT',
+        'Total HT',
+        'Total TTC',
+        'Commentaire',
+        'Statut'
+      ],
+      orders: [
+        {
+          tjmHt: 1200,
+          nbJours: 100,
+          tva: 20,
+          state: 'CONFIRMED',
+          typePresta: 'Formation',
+          client: 'M2I',
+          comment: 'Merci pour la commande',
+          id: 1
+        },
+        {
+          tjmHt: 1000,
+          nbJours: 20,
+          tva: 20,
+          state: 'CANCELED',
+          typePresta: 'Coaching',
+          client: 'MI2',
+          comment: 'Oups',
+          id: 2
+        },
+        {
+          tjmHt: 1300,
+          nbJours: 10,
+          tva: 20,
+          state: 'OPTION',
+          typePresta: 'Formation',
+          client: 'MI6',
+          comment: 'En attente de la commande',
+          id: 3
+        }
+      ]
     }
   },
   // methods contient nos propres fonctions
@@ -65,7 +114,7 @@ export default({
     }
   },
   // déclaration des composants affichés sur la page
-  components: { MyHeader, MyNav, MyFooter}
+  components: { MyHeader, MyNav, MyFooter, OrdersSlot, TableOrders }
 });
 </script>
 
