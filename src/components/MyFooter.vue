@@ -8,6 +8,7 @@ export default({
   data() {
     return {
       //créer une variable JS pour afficher l'année en dynamique
+      annee: new Date().getFullYear()
     }
   }
 })
