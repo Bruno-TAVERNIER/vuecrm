@@ -44,7 +44,7 @@ export default({
   data() {
     return {
       ok: false,
-      open: open,
+      open: true,
       titre: 'Mon CRM',
       tableau: [3,5,7,9,2,8,6,0],
       headers: [
