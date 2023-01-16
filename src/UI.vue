@@ -1,7 +1,7 @@
 <template>
-  <MyHeader />
+  <MyHeader titre="Mon CRM" :statut="open" @ouvrir="ouvrir"/>
   <div class="page">
-    <MyNav />
+    <MyNav :statut="open" />
     <main>
       Contenu de la page
       <p v-if="ok">Contenu affiché si ok est vraie</p>
@@ -39,6 +39,7 @@ export default({
   data() {
     return {
       ok: false,
+      open: open,
       tableau: [3,5,7,9,2,8,6,0]
     }
   },
@@ -54,6 +55,9 @@ export default({
       //utilisation de prevent pour éviter l'affichage du menu contextuel
       console.log('clic droit');
     },
+    ouvrir() {
+      this.open = !this.open;
+    }
   },
   // déclaration des composants affichés sur la page
   components: { MyHeader, MyNav, MyFooter}

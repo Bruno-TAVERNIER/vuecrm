@@ -1,17 +1,35 @@
 <template>
   <header>
+    <BIconList class="x3" v-show="!statut"  @click="$emit('ouvrir')"/>
+    <BIconXSquare class="x3" v-show="statut" @click="ouvrir"/>
     <h1 :style="monStyle">{{ titre }}</h1>
   </header>
 </template>
 
 <script>
-
+import { BIconList, BIconXSquare } from 'bootstrap-icons-vue'; //pour bi-list
 export default({
   name: 'MyHeader',
   data() {
     return {
-      titre: 'Mon CRM',
+      /*titre: 'Mon CRM',*/
       monStyle: {color: 'red'}
+    }
+  },
+  // propriétés venant du composant parent 
+  props: {
+    titre: String,
+    statut: Boolean
+  },
+  // déclaration des composants de la page 
+  components: {
+    BIconList, BIconXSquare
+  },
+  // dans methods on place nos fonctions perso
+  methods: {
+    ouvrir() {
+      //console.log('ouvrir');
+      this.$emit('ouvrir'); //émission d'un évènement vers le composant parent
     }
   },
   beforeCreate() {
@@ -41,7 +59,14 @@ export default({
 </script>
 
 <style scoped>
+header {
+  display: flex;
+}
 h1 {
   font-size: 2em;
+}
+.x3 {
+  font-size: 2em;
+  margin-right: 5px;
 }
 </style>
