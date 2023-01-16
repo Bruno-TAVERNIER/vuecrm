@@ -1,6 +1,6 @@
 <template>
   <MyHeader />
-  <div class="container">
+  <div class="page">
     <MyNav />
     <main>Contenu de la page</main>
   </div>

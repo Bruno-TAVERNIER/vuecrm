@@ -1,35 +1,30 @@
+@import './reset.css';
 @import './base.css';
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
+header {
+  height: 65px;
+  background: var(--app-light);
+  padding: 0 var(--app-gutter);
+}
+.page {
+  display: flex;
+  min-height: calc(100vh - 65px - 50px);
+}
+nav {
+  background: var(--app-darklight2);
+  flex-basis: 250px;
+}
+main {
+  background: var(--app-darklight);
+  flex-grow: 1;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+footer {
+  background: var(--app-light);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
 }
