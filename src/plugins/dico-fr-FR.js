@@ -2,6 +2,6 @@
 export default {
   accueil: {
     hello: 'Bonjour',
-    content: 'Contenu de page'
-  }
+    content: 'Contenu de la page'
+  },
 }

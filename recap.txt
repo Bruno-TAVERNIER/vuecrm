@@ -24,6 +24,8 @@ les fonctions du composant sont dans 'methods'
 
 npm install bootstrap-icons-vue permet d'installer les icones Bootstrap
 
+npm install vue-router@4
+
 orders: [
         {
           tjmHt: 1200,

@@ -1,0 +1,36 @@
+/* fichier de routage pour Vue */
+import { createRouter, createWebHistory } from "vue-router";
+import Home from '@/views/Home.vue'
+
+/* définition des routes: association d'un path et d'un composant */
+const routes = [
+  /* page d'accueil */
+  {
+    path: '/', /* pour la navigation et les redirections via une url */
+    name: 'home', /* pour la navigation et les redirections en se servant du nom */
+    component: Home //chargement direct
+  },
+  {
+    path: '/credits',
+    name: 'credits',
+    component: () => import('../views/credits.vue')
+  },
+  {
+    path: '/orders',
+    name: 'orders',
+    composant: () => import('../UI.vue')
+  },
+  /* autres routes: formulaire ajout/creation orders */
+  {
+    path: '/:pathMatch(.*)*',
+    component: () => import('../views/E404.vue') /* page erreur 404 */
+  }
+]
+
+/* historique du navigateur */
+const router = createRouter({
+  history: createWebHistory(''),
+  routes
+});
+
+export default router;
