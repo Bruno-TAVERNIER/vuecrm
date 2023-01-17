@@ -3,7 +3,11 @@
   <div class="page">
     <MyNav :statut="open" @chgTitre="chgTitre" />
     <main>
-      Contenu de la page
+      {{ $translate('accueil.hello') }}
+      {{ $translate('accueil.hello') }}
+      {{  hello  }}
+      {{  $maFonction() }}
+      {{  $double(5) }}
       <p v-if="ok">Contenu affiché si ok est vraie</p>
       <p v-else>Contenu affiché si ok est fausse</p>
       <p v-show="ok">Contenu affiché si ok est vraie, sinon display: none</p>
@@ -38,8 +42,8 @@ import MyFooter from './components/MyFooter.vue';
 import MyNav from './components/MyNav.vue';
 import OrdersSlot from './components/OrdersSlot.vue';
 import TableOrders from './components/TableOrders.vue';
-// import du mixin 
-import OrderMixin from './mixins/OrderMixin';
+// import du mixin @ pointe vers le répertoire "src"
+import OrderMixin from '@/mixins/OrderMixin';
 
 export default({
   name: 'UI',
@@ -48,6 +52,7 @@ export default({
       ok: false,
       open: true,
       titre: 'Mon CRM',
+      hello: this.$translate('accueil.hello'),
       tableau: [3,5,7,9,2,8,6,0],
       headers: [
         'Actions',
