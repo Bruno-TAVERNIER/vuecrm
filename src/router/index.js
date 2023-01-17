@@ -18,7 +18,7 @@ const routes = [
   {
     path: '/orders',
     name: 'orders',
-    composant: () => import('../UI.vue')
+    component: () => import('../views/orders.vue')
   },
   /* autres routes: formulaire ajout/creation orders */
   {
