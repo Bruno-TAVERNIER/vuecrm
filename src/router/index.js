@@ -26,6 +26,7 @@ const routes = [
     component: () => import('../views/E404.vue') /* page erreur 404 */
   }
 ]
+/* pause café ! */
 
 /* historique du navigateur */
 const router = createRouter({

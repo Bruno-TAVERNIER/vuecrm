@@ -1,11 +1,58 @@
 <template>
-      <h1>Orders List</h1>
-      <OrdersSlot>{{ orders.length }}</OrdersSlot>
-      <TableOrders :orders="orders" :headers="headers" @supp="supp" @chgSts="chgSts"/>
+  <h1>Orders List</h1>
+  <OrdersSlot>{{ orders.length }}</OrdersSlot>
+  <TableOrders :orders="orders" :headers="headers" @supp="supp" @chgSts="chgSts"/>
 </template>
 
 <script>
+import OrdersSlot from '../components/OrdersSlot.vue';
+import TableOrders from '../components/TableOrders.vue';
+import OrderMixin from '../mixins/OrderMixin';
+export default({
+  name: 'Orders',
+  data() {
+    return {
+      headers: [
+        'Actions',
+        'Type',
+        'Client',
+        'Taux TVA',
+        'Nb Jours',
+        'TJM HT',
+        'Total HT',
+        'Total TTC',
+        'Commentaire',
+        'Statut'
+      ],
+    }
+  },
+  methods: {
+    supp(id){
+      //console.log(id);
+      //trouver l'élément via son id et le supprimer du tableau
+      
+      // créer un nouveau tableau sans l'id recherché
+      let nouveauTableau = this.orders.filter((order) => order.id !== id);
+      //console.log(nouveauTableau);
+      this.orders = nouveauTableau;
+      // trouver l'index dans le tableau et le supprimer (slice)
+      //boucle sur tous les éléments du tableau
+      /*for(let i=0; i<this.orders.length; i++) {
+        // si id trouvé on supprime l'élément dans le tableau
+        // splice(index, nombre)
+        //supprimer le premier this.orders.shift()
+        //supprimer le dernier this.orders.pop()
+        //delete this.orders[0] supprime l'élément mais ne réindexe pas le tableau
+        if(this.orders[i].id === id) this.orders.splice(i, 1);
+      } */     
 
+    },
+  },
+  components: {
+    OrdersSlot, TableOrders
+  },
+  mixins: [OrderMixin]
+})
 </script>
 
 <style scoped>

@@ -43,19 +43,20 @@ export default({
 .open {
   display: block;
 }
-li, li a {
+li, a{
   display: block;
   text-align: center;
   font-size: 1.2em;
   width: 200px;
-  margin: 3px auto;
+  margin: 10px auto;
   background: var(--app-dark);
   color: var(--app-light);
   text-decoration: none;
   cursor: pointer
 }
 li:hover, li a:hover {
-  color: var(--app-darklight2)
+  color: var(--app-primary);
+  box-shadow: 3px 3px 3px var(--app-primary);
 }
 li a.router-link-active {
   background: var(--app-light);
