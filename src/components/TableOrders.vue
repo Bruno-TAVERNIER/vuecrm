@@ -1,4 +1,6 @@
 <template>
+  <!-- n'afficher le tableau que si il y a des éléments dans orders 
+      sinon message pour dire qu'il n'y a rien à afficher -->
   <table>
     <tr>
       <th v-for="(head, i) in headers" :key="i">{{ head }}</th>
@@ -22,9 +24,14 @@
         {{ totalTTC(order) }}
       </td>
       <td>{{  order.comment }}</td>
-      <td :class="order.state">{{  order.state }}</td>
+      <td :class="order.state">
+        <select v-model="order.state" @change="$emit('chgSts', order.id, order.state)" :class="order.state">
+          <option>CONFIRMED</option>
+          <option>OPTION</option>
+          <option>CANCELED</option>
+        </select>
+      </td>
     </tr>
-
   </table>
 </template>
 

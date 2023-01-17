@@ -3,11 +3,14 @@
     <BIconList class="x3" v-show="!statut"  @click="$emit('ouvrir')"/>
     <BIconXSquare class="x3" v-show="statut" @click="ouvrir"/>
     <h1 :style="monStyle">{{ titre }}</h1>
+    <p>{{ cpt }} <button @click="increment">++</button></p>
   </header>
 </template>
 
 <script>
 import { BIconList, BIconXSquare } from 'bootstrap-icons-vue'; //pour bi-list
+//import du mixin
+import OrderMixin from '../mixins/OrderMixin';
 export default({
   name: 'MyHeader',
   data() {
@@ -25,6 +28,8 @@ export default({
   components: {
     BIconList, BIconXSquare
   },
+  // déclaration des mixins
+  mixins: [OrderMixin],
   // dans methods on place nos fonctions perso
   methods: {
     ouvrir() {

@@ -22,7 +22,7 @@
       <div @click.left="lclic" @click.prevent.right="rclic">Une souris verte</div>
 
       <OrdersSlot>{{ orders.length }}</OrdersSlot>
-      <TableOrders :orders="orders" :headers="headers" @supp="supp"/>
+      <TableOrders :orders="orders" :headers="headers" @supp="supp" @chgSts="chgSts"/>
     </main>
   </div>
   <MyFooter />
@@ -38,6 +38,8 @@ import MyFooter from './components/MyFooter.vue';
 import MyNav from './components/MyNav.vue';
 import OrdersSlot from './components/OrdersSlot.vue';
 import TableOrders from './components/TableOrders.vue';
+// import du mixin 
+import OrderMixin from './mixins/OrderMixin';
 
 export default({
   name: 'UI',
@@ -59,38 +61,6 @@ export default({
         'Commentaire',
         'Statut'
       ],
-      orders: [
-        {
-          tjmHt: 1200,
-          nbJours: 100,
-          tva: 20,
-          state: 'CONFIRMED',
-          typePresta: 'Formation',
-          client: 'M2I',
-          comment: 'Merci pour la commande',
-          id: 1
-        },
-        {
-          tjmHt: 1000,
-          nbJours: 20,
-          tva: 20,
-          state: 'CANCELED',
-          typePresta: 'Coaching',
-          client: 'MI2',
-          comment: 'Oups',
-          id: 2
-        },
-        {
-          tjmHt: 1300,
-          nbJours: 10,
-          tva: 20,
-          state: 'OPTION',
-          typePresta: 'Formation',
-          client: 'MI6',
-          comment: 'En attente de la commande',
-          id: 3
-        }
-      ]
     }
   },
   // methods contient nos propres fonctions
@@ -113,13 +83,30 @@ export default({
       this.titre = "Mon nouveau titre";
     },
     supp(id){
-      console.log(id);
+      //console.log(id);
       //trouver l'élément via son id et le supprimer du tableau
       
-    }
+      // créer un nouveau tableau sans l'id recherché
+      let nouveauTableau = this.orders.filter((order) => order.id !== id);
+      //console.log(nouveauTableau);
+      this.orders = nouveauTableau;
+      // trouver l'index dans le tableau et le supprimer (slice)
+      //boucle sur tous les éléments du tableau
+      /*for(let i=0; i<this.orders.length; i++) {
+        // si id trouvé on supprime l'élément dans le tableau
+        // splice(index, nombre)
+        //supprimer le premier this.orders.shift()
+        //supprimer le dernier this.orders.pop()
+        //delete this.orders[0] supprime l'élément mais ne réindexe pas le tableau
+        if(this.orders[i].id === id) this.orders.splice(i, 1);
+      } */     
+
+    },
+    
   },
   // déclaration des composants affichés sur la page
-  components: { MyHeader, MyNav, MyFooter, OrdersSlot, TableOrders }
+  components: { MyHeader, MyNav, MyFooter, OrdersSlot, TableOrders },
+  mixins: [OrderMixin]
 });
 </script>
 
