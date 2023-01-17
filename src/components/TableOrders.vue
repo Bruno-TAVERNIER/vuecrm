@@ -7,7 +7,8 @@
     <tr v-for="order in orders" :key="order.id">
       <td>
         <BIconPencilSquare />
-        <BIconTrashFill />
+        <!-- pour la suppression un demande au parent de supprimer l'élément du tableau orders -->
+        <b-icon-trash-fill @click="$emit('supp', order.id)" class="iconSupp"/>
       </td>
       <td>{{ order.typePresta }}</td>
       <td>{{ order.client }}</td>
@@ -76,5 +77,8 @@ tr:nth-child(odd) {
 }
 .CANCELED {
   background: var(--app-error);
+}
+.iconSupp:hover {
+  cursor: pointer;
 }
 </style>

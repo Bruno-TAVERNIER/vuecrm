@@ -22,7 +22,7 @@
       <div @click.left="lclic" @click.prevent.right="rclic">Une souris verte</div>
 
       <OrdersSlot>{{ orders.length }}</OrdersSlot>
-      <TableOrders :orders="orders" :headers="headers" />
+      <TableOrders :orders="orders" :headers="headers" @supp="supp"/>
     </main>
   </div>
   <MyFooter />
@@ -111,6 +111,11 @@ export default({
     // la demande de changement de titre vient du composant enfant <MyNav />
     chgTitre() {
       this.titre = "Mon nouveau titre";
+    },
+    supp(id){
+      console.log(id);
+      //trouver l'élément via son id et le supprimer du tableau
+      
     }
   },
   // déclaration des composants affichés sur la page

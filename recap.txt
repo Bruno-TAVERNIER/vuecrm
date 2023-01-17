@@ -1,0 +1,58 @@
+npm init vue@latest => installation d'un projet vue.js
+cd projet
+npm install => installation des dépendances
+npm run dev => lancement du serveur web (port 5173, live review)
+
+un composant = un template + un script + un style CSS (scopé pour éviter de déborder du composant)
+un composant parent communique avec un composant enfant via des "props"
+un composant enfant communique avec un composant parent via un evenement
+chaque composant à un cycle de vie sur lequel on peut intervenir via des hooks
+- beforeCreate/created
+- beforeMount/mounted
+- beforeUpdate/updated
+- beforeUnmount
+
+v-if/v-else permet de faire de l'affichage conditionnel (destruction/reconstruction de l'élément)
+v-show permet de faire de l'affichage conditionnel (display: none)
+v-for permet de faire des boucles (attention il faut une propriété "key" unique)
+v-on:click ou @click permet de mettre une action sur un évènement (click)
+v-bind:attr ou :attr permet de relier un attribut avec une variable JS
+
+un composant doit être importé et déclaré avant utilisation
+les variables du composant sont dans data() qui doit faire un return
+les fonctions du composant sont dans 'methods'
+
+npm install bootstrap-icons-vue permet d'installer les icones Bootstrap
+
+orders: [
+        {
+          tjmHt: 1200,
+          nbJours: 100,
+          tva: 20,
+          state: 'CONFIRMED',
+          typePresta: 'Formation',
+          client: 'M2I',
+          comment: 'Merci pour la commande',
+          id: 1
+        },
+        {
+          tjmHt: 1000,
+          nbJours: 20,
+          tva: 20,
+          state: 'CANCELED',
+          typePresta: 'Coaching',
+          client: 'MI2',
+          comment: 'Oups',
+          id: 2
+        },
+        {
+          tjmHt: 1300,
+          nbJours: 10,
+          tva: 20,
+          state: 'OPTION',
+          typePresta: 'Formation',
+          client: 'MI6',
+          comment: 'En attente de la commande',
+          id: 3
+        }
+      ]
