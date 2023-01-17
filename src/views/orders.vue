@@ -2,6 +2,7 @@
   <h1>Orders List</h1>
   <OrdersSlot>{{ orders.length }}</OrdersSlot>
   <TableOrders :orders="orders" :headers="headers" @supp="supp" @chgSts="chgSts"/>
+  <router-link to="/addorder">Ajouter</router-link>
 </template>
 
 <script>
@@ -56,5 +57,11 @@ export default({
 </script>
 
 <style scoped>
-
+a {
+  font-size: 1.5em;
+  text-decoration: none;
+  border: 1px solid blue;
+  padding: 2px;
+  margin-left: 60px;
+}
 </style>

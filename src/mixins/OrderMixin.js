@@ -77,6 +77,12 @@ export default({
       // stockage dans le localStorage après transformation du JSON en String
       localStorage.setItem('orders', JSON.stringify(this.orders));
       localStorage.setItem('truc', 'muche');
+    },
+    recupOrder(id) {
+      //console.log(id);
+    //return élément dont id = ... 
+    // attention le paramamètre vient d'une URL donc type String
+    return this.orders.find(order => order.id === parseInt(id));
     }
   }
 });

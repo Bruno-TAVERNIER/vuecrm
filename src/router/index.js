@@ -22,6 +22,16 @@ const routes = [
   },
   /* autres routes: formulaire ajout/creation orders */
   {
+    path: '/addorder',
+    name: 'addorder',
+    component: () => import('../views/orderForm.vue')
+  },
+  {
+    path: '/editorder/:id',
+    name: 'editorder',
+    component: () => import('../views/orderForm.vue')
+  },
+  {
     path: '/:pathMatch(.*)*',
     component: () => import('../views/E404.vue') /* page erreur 404 */
   }
