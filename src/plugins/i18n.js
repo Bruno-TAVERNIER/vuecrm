@@ -6,9 +6,13 @@ export default {
   install: (app, options) => {
     // injection d'une fonction globale $translate
     app.config.globalProperties.$translate = (key) => {
+      //console.log(key);
       return key.split('.').reduce((o, i) => {
-        if (o) return o[i]
-      }, options.default)
+        /*console.log(o);
+        console.log(i);
+        console.log(o[i]);*/
+        if (o) return o[i];
+      }, options)
     };
 
     //une fonction juste pour le fun

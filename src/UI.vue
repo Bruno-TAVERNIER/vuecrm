@@ -3,7 +3,7 @@
   <div class="page">
     <MyNav :statut="open" @chgTitre="chgTitre" />
     <main>
-    <router-view />
+      <router-view /> <!-- c'est ici que l'on intègre les composants dynamiquement -->
     </main>
   </div>
   <MyFooter />

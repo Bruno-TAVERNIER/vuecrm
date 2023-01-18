@@ -1,5 +1,5 @@
 <template>
-  <h1>Crédits</h1>
+   <h1>{{ $translate('credits.titre') }}</h1>
 
   <ul>
     <li v-for="(credit, i) in credits" :key="i">

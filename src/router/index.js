@@ -13,7 +13,7 @@ const routes = [
   {
     path: '/credits',
     name: 'credits',
-    component: () => import('../views/credits.vue')
+    component: () => import('../views/credits.vue') //lazy loading: chargement uniquement à la demande
   },
   {
     path: '/orders',
@@ -27,7 +27,7 @@ const routes = [
     component: () => import('../views/orderForm.vue')
   },
   {
-    path: '/editorder/:id',
+    path: '/editorder/:id', /*paramètre dynamique dans l'url qui sera dans $route.params.id */
     name: 'editorder',
     component: () => import('../views/orderForm.vue')
   },

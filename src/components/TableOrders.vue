@@ -44,6 +44,13 @@ export default({
     orders: Object,
     headers: Object
   },
+  /* on se sert des hooks pour afficher un spinner de chargement */
+  created() {
+    console.log('loader lancé')
+  },  
+  mounted() {
+    console.log('loader supprimé');
+  },
   methods: {
     totalHT(nbJours, tjmHt) {
       return nbJours * tjmHt

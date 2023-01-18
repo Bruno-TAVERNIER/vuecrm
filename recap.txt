@@ -1,3 +1,4 @@
+[JOUR1]
 npm init vue@latest => installation d'un projet vue.js
 cd projet
 npm install => installation des dépendances
@@ -24,7 +25,26 @@ les fonctions du composant sont dans 'methods'
 
 npm install bootstrap-icons-vue permet d'installer les icones Bootstrap
 
+[JOUR2]
+mixins: partage de code et de variables entre plusieurs pages ou composants (centralisation / mutualisation)
+
+plugins: partage de fonctions de façon globale dans toute l'application (routage / API / traduction, ...)
+
+routage: possibilité de simuler une application single page composée de plusieurs pages (composants)
+- le contenue des composants s'affiche dans le 'router-view'
+- il faut une 'table de routage' pour associer un path (url) avec un composant (view)
+- chargement direct des composants pour le routage ou "lazy loading"
+- possibilité de passer et récupérer des paramètres dans l'url
+- possibilité de faire des redirections
+- remplacement des balises <a href=""> par des <router-link to="">
+- gestion erreur 404 => composant d'affichage des erreurs
 npm install vue-router@4
+
+Transitions: animations CSS automatisées par des classes gérées par le framework
+- animations sur v-if/v-else/v-show
+- animations sur boucles v-for (ajout/suppression/déplacement)
+
+[JOUR3]
 
 orders: [
         {
