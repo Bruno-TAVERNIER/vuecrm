@@ -25,7 +25,7 @@
       </td>
       <td>{{  order.comment }}</td>
       <td :class="order.state">
-        <select v-model="order.state" @change="$emit('chgSts', order.id, order.state)" :class="order.state">
+        <select v-model="order.state" @change="$emit('chgSts', order)" :class="order.state">
           <option>CONFIRMED</option>
           <option>OPTION</option>
           <option>CANCELED</option>
