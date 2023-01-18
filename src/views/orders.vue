@@ -1,6 +1,7 @@
 <template>
   <h1>Orders List</h1>
-  <OrdersSlot>{{ orders.length }}</OrdersSlot>
+  <!-- la fonction nombreOrders est mise en cache donc pas de recalcul à chaque mise à jour -->
+  <OrdersSlot>{{ nombreOrders }}</OrdersSlot>
   <TableOrders :orders="orders" :headers="headers" @supp="supp" @chgSts="chgSts"/>
   <router-link to="/addorder">Ajouter</router-link>
 </template>
@@ -25,6 +26,12 @@ export default({
         'Commentaire',
         'Statut'
       ],
+    }
+  },
+  computed: {
+    /* computed = fonction mise en cache, pas de paramètres et retour obligatoire */
+    nombreOrders() {
+      return this.orders.length;
     }
   },
   methods: {

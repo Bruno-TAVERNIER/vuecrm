@@ -1,6 +1,20 @@
 <template>
   <h1>{{ title }}</h1>
   <pre>{{ order }}</pre>
+  <form>
+    <p>
+      <label>Client:</label>
+      <!-- v-model bidirectionnel sur saisie (change) 
+           v-model.lazy bidirectionnel sur perte de focus du champs (blur) 
+           v-model.trim supprime les espaces avant et après le texte saisi 
+           v-model.number pour la saisie des nombres -->
+      <input v-model="order.client" placeholder="nom du client" />
+    </p>
+    <!-- order => formulaire 
+    state => select 
+    comment =>textarea -->
+
+  </form>
 </template>
 
 <script>
@@ -10,6 +24,7 @@ export default({
   data() {
     return {
       title: 'Add an Order',
+      nom: '',
       order: {
           tjmHt: '',
           nbJours: '',
@@ -20,6 +35,15 @@ export default({
           comment: '',
         },
     }
+  },
+  /* surveillance des variables de data(): controle saisie (nombres, etc), valeurs négatives, ... */
+  watch: {
+    /* fonction pour le champs nom qui recoit la nouvelle valeur et l'ancienne valeur à chaque changement */
+    nom(newValue, oldValue) {
+      console.log(oldValue);
+      console.log(newValue);
+      /* si plus de 4 caractères => appel API */
+    } 
   },
   mounted() {
     // $route pour accéder aux paramètres de la route
@@ -33,5 +57,15 @@ export default({
 </script>
 
 <style scoped>
-
+  label {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    font-size: 1.5em;
+  }
+  input {
+    width: 90%;
+    margin: 0 auto;
+    font-size: 1.5em;
+  }
 </style>
