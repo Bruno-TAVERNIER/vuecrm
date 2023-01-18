@@ -45,6 +45,9 @@ Transitions: animations CSS automatisées par des classes gérées par le framew
 - animations sur boucles v-for (ajout/suppression/déplacement)
 
 [JOUR3]
+npm install -g json-server (serveur simulant des API avec des fichiers JSON)
+npm install axios vue-axios (appels API GET/POST/PUT/DELETE)
+
 
 orders: [
         {

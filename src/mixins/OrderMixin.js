@@ -36,7 +36,7 @@ export default({
       ]*/
     }
   },
-  created() {
+  /*created() {
     // localStorage.setItem(key, value) stocke la valeur value (texte) dans la clé key
     //localStorage.getitem(key) récupère la valeur de la clé key
     //localStorage.remove(key) supprime la valeur de key
@@ -48,7 +48,7 @@ export default({
       // vrai si connexion internet console.log(navigator.onLine);
       // PWA: Progressive Web App 
     }
-  },
+  },*/
   methods: {
     /* CRUD: Create, Read, Update, Delete */
     increment() {
@@ -64,8 +64,8 @@ export default({
       this.orders.forEach((order) => {
         if(order.id === id) order.state = sts;
       });
-      console.log(this.orders);
-      this.save();
+      //console.log(this.orders);
+      //this.save();
       // on crée un nouveau tableau qu'il faudra utiliser pour remplacer l'original 
       /*let nouveauTableau = this.orders.map((order) => {
         if(order.id === id) order.state = sts;
@@ -73,11 +73,11 @@ export default({
       });
       console.log(nouveauTableau);*/
     },
-    save() {
+    /*save() {
       // stockage dans le localStorage après transformation du JSON en String
       localStorage.setItem('orders', JSON.stringify(this.orders));
       localStorage.setItem('truc', 'muche');
-    },
+    },*/
     recupOrder(id) {
       //console.log(id);
     //return élément dont id = ... 
