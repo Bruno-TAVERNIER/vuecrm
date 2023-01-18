@@ -18,6 +18,8 @@ export default({
         {url: 'https://vuejs.org', name: 'Vue JS'},
         {url: 'https://router.vuejs.org', name: 'Vue Router'},
         {url: 'https://bootstrap-vue.org/docs/icons', name: 'Vue Bootstrap Icons'},
+        {url: 'https://axios-http.com/fr/docs/intro', name: 'Axios'},
+        {url: 'https://www.npmjs.com/package/vue-axios', name: 'Vue-Axios'},
       ]
     }
   }
@@ -25,5 +27,23 @@ export default({
 </script>
 
 <style scoped>
-
+ul {
+  display: block;
+  width: 400px;
+  margin: 0 auto;
+  font-size: 1.5em;
+  text-align: center;
+}
+li {
+  margin: 10px;
+  padding: 5px;
+  background: var(--app-dark);
+  border-radius: 5px;
+}
+a {
+  color: var(--app-light);
+}
+li:hover {
+  background: var(--app-darklight2);
+}
 </style>

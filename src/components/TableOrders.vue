@@ -26,9 +26,9 @@
       <td>{{  order.comment }}</td>
       <td :class="order.state">
         <select v-model="order.state" @change="$emit('chgSts', order)" :class="order.state">
-          <option>CONFIRMED</option>
-          <option>OPTION</option>
-          <option>CANCELED</option>
+          <option class="CONFIRMED">CONFIRMED</option>
+          <option class="OPTION">OPTION</option>
+          <option class="CANCELED">CANCELED</option>
         </select>
       </td>
     </tr>
@@ -87,6 +87,11 @@ th, td {
 tr:nth-child(odd) {
   background: var(--app-dark);
   color: var(--app-light);
+}
+select {
+  width: 100%;
+  font-size: 1em;
+  text-align: center;
 }
 .OPTION {
   background: var(--app-warning);

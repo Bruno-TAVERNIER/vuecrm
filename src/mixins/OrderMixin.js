@@ -68,6 +68,44 @@ export default({
     decrement() {
       this.cpt--;
     },
+    /* suppression d'un order dans l'API */
+    supp(id) {
+      this.$http.delete(this.urlApi + id)
+      .then(response => {
+        //rechargement de la page
+        this.$router.go();
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    },
+    /* sauvegarde/mise à jour d'un order dans l'API */
+    save() {
+      console.log(this.order);
+      //si order.id => mise à jour => axios.put(url/id, order)
+      if(this.order.id){
+        this.axios.put(this.urlApi + this.order.id, this.order)
+        .then(response => {
+          this.$router.push('/orders');
+        })
+        .catch(err => {
+          console.log(err);
+        });
+      }
+      //sinon création => axios.post(url, order)
+      // on peut mettre this.$http au lieu de this.axios
+      // plugin vue-resource => this.$http n'existe plus
+      else {
+        this.$http.post(this.urlApi, this.order)
+        .then(response => {
+            // redirection vers tableau orders
+            this.$router.push('/orders');
+        })
+        .catch(err => {
+          console.log(err);
+        });
+      }
+    },
     chgSts(order) {
       /*console.log(id);
       console.log(sts);*/

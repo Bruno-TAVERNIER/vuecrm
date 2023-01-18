@@ -1,7 +1,7 @@
 <template>
   <h1>{{ title }}</h1>
-  <pre>{{ order }}</pre>
-  <form>
+  <!--<pre>{{ order }}</pre> vue permet d'afficher du json directement -->
+  <div>
     <p>
       <label>Client:</label>
       <!-- v-model bidirectionnel sur saisie (change) 
@@ -10,11 +10,43 @@
            v-model.number pour la saisie des nombres -->
       <input v-model="order.client" placeholder="nom du client" />
     </p>
+    <p>
+      <label>Type de prestation</label>
+      <input v-model="order.typePresta" placeholder="type de prestation" />
+    </p>
+    <p>
+      <label>Nombre de jours</label>
+      <input v-model.number="order.nbJours" placeholder="nombre de jours" />
+    </p>
+    <p>
+      <label>Taux Journalier HT</label>
+      <input v-model.number="order.tjmHt" placeholder="taux journalier HT" />
+    </p>
+    <p>
+      <label>Taux de TVA</label>
+      <input v-model.number="order.tva" placeholder="taux de TVA" />
+    </p>
+    <p>
+      <label>Statut</label>
+      <select v-model="order.state">
+        <option selected disabled>Sélectionnez un statut</option>
+        <option>CONFIRMED</option>
+        <option>OPTION</option>
+        <option>CANCELED</option>
+      </select>
+    </p>
+    <p>
+      <label>Commentaire</label>
+      <textarea v-model="order.comment" rows="10" maxlength="300"></textarea>
+    </p>
+    <p class="center">
+      <button @click="save">{{ $route.params.id ? 'Modifier' : 'Ajouter' }}</button>
+    </p>
     <!-- order => formulaire 
     state => select 
     comment =>textarea -->
 
-  </form>
+  </div>
 </template>
 
 <script>
@@ -57,15 +89,32 @@ export default({
 </script>
 
 <style scoped>
+  p {
+    margin: 20px 0px;
+  }
   label {
     display: block;
     width: 90%;
-    margin: 0 auto;
+    margin: 5px auto;
     font-size: 1.5em;
   }
-  input {
+  input, textarea, select {
+    display: block;
     width: 90%;
     margin: 0 auto;
+    padding: 5px;
     font-size: 1.5em;
+    border-radius: 5px;
+  }
+  .center {
+    text-align: center;
+  }
+  button {
+    margin: 0 auto;
+    padding: 5px;
+    font-size: 1.5em;
+    border-radius: 5px;
+    background: var(--app-dark);
+    color: var(--app-light);
   }
 </style>

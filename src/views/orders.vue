@@ -34,7 +34,7 @@ export default({
       return this.orders.length;
     }
   },
-  methods: {
+ /*methods: {
     supp(id){
       //console.log(id);
       //trouver l'élément via son id et le supprimer du tableau
@@ -52,10 +52,10 @@ export default({
         //supprimer le dernier this.orders.pop()
         //delete this.orders[0] supprime l'élément mais ne réindexe pas le tableau
         if(this.orders[i].id === id) this.orders.splice(i, 1);
-      } */     
+      }      
 
     },
-  },
+  },*/
   components: {
     OrdersSlot, TableOrders
   },
