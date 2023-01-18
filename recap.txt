@@ -48,6 +48,9 @@ Transitions: animations CSS automatisées par des classes gérées par le framew
 npm install -g json-server (serveur simulant des API avec des fichiers JSON)
 npm install axios vue-axios (appels API GET/POST/PUT/DELETE)
 
+pour utiliser l'appli, dans deux terminaux:
+- npm run jsonserver
+- npm run dev
 
 orders: [
         {

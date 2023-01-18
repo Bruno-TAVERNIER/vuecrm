@@ -1,8 +1,11 @@
 <template>
   <h1>Orders List</h1>
   <!-- la fonction nombreOrders est mise en cache donc pas de recalcul à chaque mise à jour -->
-  <OrdersSlot>{{ nombreOrders }}</OrdersSlot>
-  <TableOrders :orders="orders" :headers="headers" @supp="supp" @chgSts="chgSts"/>
+  <OrdersSlot v-show="haveOrders">{{ nombreOrders }}</OrdersSlot>
+  <!-- n'afficher le tableau que si il y a des éléments dans orders 
+       sinon message pour dire qu'il n'y a rien à afficher -->
+  <p v-show="!haveOrders" class="noOrder">Aucun order à afficher</p>
+  <TableOrders v-show="haveOrders" :orders="orders" :headers="headers" @supp="supp" @chgSts="chgSts"/>
   <router-link to="/addorder">Ajouter</router-link>
 </template>
 
@@ -32,6 +35,9 @@ export default({
     /* computed = fonction mise en cache, pas de paramètres et retour obligatoire */
     nombreOrders() {
       return this.orders.length;
+    },
+    haveOrders() {
+      return this.orders.length > 0 ? true : false; 
     }
   },
  /*methods: {
@@ -69,6 +75,17 @@ a {
   text-decoration: none;
   border: 1px solid blue;
   padding: 2px;
-  margin-left: 60px;
+  margin-left: 80px;
+}
+.noOrder {
+  background: var(--app-dark);
+  color: var(--app-light);
+  font-size: 2em;
+  height: 40px;
+  line-height: 40px;
+  width: 350px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 5px 5px 2px rgba(50,50,50, .5);
 }
 </style>

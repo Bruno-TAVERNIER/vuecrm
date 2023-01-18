@@ -1,6 +1,4 @@
 <template>
-  <!-- n'afficher le tableau que si il y a des éléments dans orders 
-      sinon message pour dire qu'il n'y a rien à afficher -->
   <table>
     <tr>
       <th v-for="(head, i) in headers" :key="i">{{ head }}</th>

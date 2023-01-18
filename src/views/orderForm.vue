@@ -3,7 +3,7 @@
   <!--<pre>{{ order }}</pre> vue permet d'afficher du json directement -->
   <div>
     <p>
-      <label>Client:</label>
+      <label>Client</label>
       <!-- v-model bidirectionnel sur saisie (change) 
            v-model.lazy bidirectionnel sur perte de focus du champs (blur) 
            v-model.trim supprime les espaces avant et après le texte saisi 

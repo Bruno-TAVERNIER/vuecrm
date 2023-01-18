@@ -43,20 +43,20 @@
   ],
   "clients": [
     {
-      "nom": "Christophe",
+      "nom": "Modus",
+      "totalCaHt": 10000,
       "tva": 20,
-      "totalCaHt": 12000,
       "state": "ACTIVE",
-      "comment": "Wesh ! Commentaire pour client Christophe",
+      "comment": "test",
       "id": 1
     },
     {
-      "state": "INACTIVE",
+      "nom": "M2I",
+      "totalCaHt": 100000,
       "tva": 20,
-      "id": 2,
-      "nom": "Modus",
-      "totalCaHt": 120000,
-      "comment": "Commentaire pour clien Modus"
+      "state": "ACTIVE",
+      "comment": "une souris verte",
+      "id": 2
     }
   ]
 }

@@ -31,12 +31,28 @@ const routes = [
     name: 'editorder',
     component: () => import('../views/orderForm.vue')
   },
+  /* clients */
+  {
+    path: '/clients',
+    name: 'clients',
+    component: () => import('../views/clients.vue')
+  },
+  /* autres routes: formulaire ajout/creation orders */
+  {
+    path: '/addclient',
+    name: 'addclient',
+    component: () => import('../views/clientForm.vue')
+  },
+  {
+    path: '/editclient/:id', /*paramètre dynamique dans l'url qui sera dans $route.params.id */
+    name: 'editclient',
+    component: () => import('../views/clientForm.vue')
+  },
   {
     path: '/:pathMatch(.*)*',
     component: () => import('../views/E404.vue') /* page erreur 404 */
   }
 ]
-/* pause café ! */
 
 /* historique du navigateur */
 const router = createRouter({
