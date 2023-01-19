@@ -47,6 +47,12 @@ Transitions: animations CSS automatisées par des classes gérées par le framew
 [JOUR3]
 npm install -g json-server (serveur simulant des API avec des fichiers JSON)
 npm install axios vue-axios (appels API GET/POST/PUT/DELETE)
+CRUD (Create => POST, Read => GET, Update => PUT, Delete => DELETE)
+Formulaires:
+- v-model pour liaison bidirectionnelle template/script
+- watch => fonctions qui permettent de "surveiller" un élément de formulaire (vérification nombres, longueur, ...)
+- computed => fonctions sans paramètres avec return obligatoire. Mises en cache ! 
+Pratique => Créer les Clients idem Orders.
 
 pour utiliser l'appli, dans deux terminaux:
 - npm run jsonserver
